@@ -1,0 +1,975 @@
+// Superhero 2.3.2
+// Variables
+// --------------------------------------------------
+
+
+// Global values
+// --------------------------------------------------
+
+
+// Grays
+// -------------------------
+@black:                 #000;
+@grayDarker:            #222;
+@grayDark:              #333;
+@gray:                  #555;
+@grayLight:             #999;
+@grayLighter:           #eee;
+@white:                 #fff;
+
+
+// Accent colors
+// -------------------------
+@blue:                  #45515F;
+@blueDark:              #2A333C;
+@green:                 #5DA028;
+@red:                   #A12932;
+@yellow:                #E6C92E;
+@orange:                #E36B23;
+@pink:                  #C74871;
+@purple:                #7073CF;
+
+
+// Scaffolding
+// -------------------------
+@bodyBackground:        @blueDark;
+@textColor:             #ECE9D7;
+
+
+// Links
+// -------------------------
+@linkColor:             @orange;
+@linkColorHover:        @linkColor;
+
+
+// Typography
+// -------------------------
+@sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+@serifFontFamily:       Georgia, Utopia, Palatino, 'Palatino Linotype', serif;
+@monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace;
+
+@baseFontSize:          15px;
+@baseFontFamily:        @serifFontFamily;
+@baseLineHeight:        20px;
+@altFontFamily:         @serifFontFamily;
+
+@headingsFontFamily:    'Oswald', sans-serif; // empty to use BS default, @baseFontFamily
+@headingsFontWeight:    bold;    // instead of browser default, bold
+@headingsColor:         @orange; // empty to use BS default, @textColor
+
+
+// Component sizing
+// -------------------------
+// Based on 14px font-size and 20px line-height
+
+@fontSizeLarge:         @baseFontSize * 1.25; // ~18px
+@fontSizeSmall:         @baseFontSize * 0.85; // ~12px
+@fontSizeMini:          @baseFontSize * 0.75; // ~11px
+
+@paddingLarge:          11px 19px; // 44px
+@paddingSmall:          2px 10px;  // 26px
+@paddingMini:           0px 6px;   // 22px
+
+@baseBorderRadius:      4px;
+@borderRadiusLarge:     6px;
+@borderRadiusSmall:     3px;
+
+
+// Tables
+// -------------------------
+@tableBackground:                   darken(@blue, 3%); // overall background-color
+@tableBackgroundAccent:             @blue; // for striping
+@tableBackgroundHover:              lighten(@blue, 5%); // for hover
+@tableBorder:                       transparent; // table and cell border
+
+// Buttons
+// -------------------------
+@btnBackground:                     @white;
+@btnBackgroundHighlight:            darken(@white, 10%);
+@btnBorder:                         darken(@white, 20%);
+
+@btnPrimaryBackground:              @linkColor;
+@btnPrimaryBackgroundHighlight:     spin(@btnPrimaryBackground, 15%);
+
+@btnInfoBackground:                 #5bc0de;
+@btnInfoBackgroundHighlight:        #2f96b4;
+
+@btnSuccessBackground:              #62c462;
+@btnSuccessBackgroundHighlight:     #51a351;
+
+@btnWarningBackground:              lighten(@orange, 15%);
+@btnWarningBackgroundHighlight:     @orange;
+
+@btnDangerBackground:               #ee5f5b;
+@btnDangerBackgroundHighlight:      #bd362f;
+
+@btnInverseBackground:              @gray;
+@btnInverseBackgroundHighlight:     @grayDarker;
+
+
+// Forms
+// -------------------------
+@inputBackground:               @white;
+@inputBorder:                   #ccc;
+@inputBorderRadius:             @baseBorderRadius;
+@inputDisabledBackground:       @grayLighter;
+@formActionsBackground:         transparent;
+@inputHeight:                   @baseLineHeight + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
+
+
+// Dropdowns
+// -------------------------
+@dropdownBackground:            lighten(@blue, 10%);
+@dropdownBorder:                transparent;
+@dropdownDividerTop:            transparent;
+@dropdownDividerBottom:         @blue;
+
+@dropdownLinkColor:             @textColor;
+@dropdownLinkColorHover:        @white;
+@dropdownLinkColorActive:       @white;
+
+@dropdownLinkBackgroundActive:  @linkColor;
+@dropdownLinkBackgroundHover:   @dropdownLinkBackgroundActive;
+
+
+
+// COMPONENT VARIABLES
+// --------------------------------------------------
+
+
+// Z-index master list
+// -------------------------
+// Used for a bird's eye view of components dependent on the z-axis
+// Try to avoid customizing these :)
+@zindexDropdown:          1000;
+@zindexPopover:           1010;
+@zindexTooltip:           1030;
+@zindexFixedNavbar:       1030;
+@zindexModalBackdrop:     1040;
+@zindexModal:             1050;
+
+
+// Sprite icons path
+// -------------------------
+@iconSpritePath:          "../img/glyphicons-halflings.png";
+@iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png";
+
+
+// Input placeholder text color
+// -------------------------
+@placeholderText:         @grayLight;
+
+
+// Hr border color
+// -------------------------
+@hrBorder:                transparent;
+
+
+// Horizontal forms & lists
+// -------------------------
+@horizontalComponentOffset:       180px;
+
+
+// Wells
+// -------------------------
+@wellBackground:                  @blue;
+
+
+// Navbar
+// -------------------------
+@navbarCollapseWidth:             979px;
+@navbarCollapseDesktopWidth:      @navbarCollapseWidth + 1;
+
+@navbarHeight:                    70px;
+@navbarBackgroundHighlight:       @navbarBackground;
+@navbarBackground:                @blueDark;
+@navbarBorder:                    darken(@navbarBackground, 5%);
+
+@navbarText:                      @grayLight;
+@navbarLinkColor:                 @orange;
+@navbarLinkColorHover:            @orange;
+@navbarLinkColorActive:           @navbarLinkColorHover;
+@navbarLinkBackgroundHover:       transparent;
+@navbarLinkBackgroundActive:      @navbarBackground;
+
+@navbarBrandColor:                @navbarLinkColor;
+
+// Inverted navbar
+@navbarInverseBackground:                @blue;
+@navbarInverseBackgroundHighlight:       @navbarInverseBackground;
+@navbarInverseBorder:                    darken(@navbarBackground, 5%);
+
+@navbarInverseText:                      @grayLight;
+@navbarInverseLinkColor:                 @orange;
+@navbarInverseLinkColorHover:            @orange;
+@navbarInverseLinkColorActive:           @navbarInverseLinkColorHover;
+@navbarInverseLinkBackgroundHover:       transparent;
+@navbarInverseLinkBackgroundActive:      @navbarInverseBackground;
+
+@navbarInverseSearchBackground:          @white;
+@navbarInverseSearchBackgroundFocus:     @white;
+@navbarInverseSearchBorder:              @navbarInverseBackground;
+@navbarInverseSearchPlaceholderColor:    @grayLight;
+
+@navbarInverseBrandColor:                @navbarInverseLinkColor;
+
+
+// Pagination
+// -------------------------
+@paginationBackground:                @blue;
+@paginationBorder:                    transparent;
+@paginationActiveBackground:          @orange;
+
+
+// Hero unit
+// -------------------------
+@heroUnitBackground:              @blue;
+@heroUnitHeadingColor:            inherit;
+@heroUnitLeadColor:               inherit;
+
+
+// Form states and alerts
+// -------------------------
+@warningText:             #c09853;
+@warningBackground:       #fcf8e3;
+@warningBorder:           darken(spin(@warningBackground, -10), 3%);
+
+@errorText:               #b94a48;
+@errorBackground:         #f2dede;
+@errorBorder:             darken(spin(@errorBackground, -10), 3%);
+
+@successText:             #468847;
+@successBackground:       #dff0d8;
+@successBorder:           darken(spin(@successBackground, -10), 5%);
+
+@infoText:                #3a87ad;
+@infoBackground:          #d9edf7;
+@infoBorder:              darken(spin(@infoBackground, -10), 7%);
+
+
+// Tooltips and popovers
+// -------------------------
+@tooltipColor:            #fff;
+@tooltipBackground:       #000;
+@tooltipArrowWidth:       5px;
+@tooltipArrowColor:       @tooltipBackground;
+
+@popoverBackground:       @wellBackground;
+@popoverArrowWidth:       10px;
+@popoverArrowColor:       @wellBackground;
+@popoverTitleBackground:  darken(@popoverBackground, 3%);
+
+// Special enhancement for popovers
+@popoverArrowOuterWidth:  @popoverArrowWidth + 1;
+@popoverArrowOuterColor:  rgba(0,0,0,.25);
+
+
+
+// GRID
+// --------------------------------------------------
+
+
+// Default 940px grid
+// -------------------------
+@gridColumns:             12;
+@gridColumnWidth:         60px;
+@gridGutterWidth:         20px;
+@gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+
+// 1200px min
+@gridColumnWidth1200:     70px;
+@gridGutterWidth1200:     30px;
+@gridRowWidth1200:        (@gridColumns * @gridColumnWidth1200) + (@gridGutterWidth1200 * (@gridColumns - 1));
+
+// 768px-979px
+@gridColumnWidth768:      42px;
+@gridGutterWidth768:      20px;
+@gridRowWidth768:         (@gridColumns * @gridColumnWidth768) + (@gridGutterWidth768 * (@gridColumns - 1));
+
+
+// Fluid grid
+// -------------------------
+@fluidGridColumnWidth:    percentage(@gridColumnWidth/@gridRowWidth);
+@fluidGridGutterWidth:    percentage(@gridGutterWidth/@gridRowWidth);
+
+// 1200px min
+@fluidGridColumnWidth1200:     percentage(@gridColumnWidth1200/@gridRowWidth1200);
+@fluidGridGutterWidth1200:     percentage(@gridGutterWidth1200/@gridRowWidth1200);
+
+// 768px-979px
+@fluidGridColumnWidth768:      percentage(@gridColumnWidth768/@gridRowWidth768);
+@fluidGridGutterWidth768:      percentage(@gridGutterWidth768/@gridRowWidth768);
+
+
+// Superhero 2.3.2
+// Bootswatch
+// -----------------------------------------------------
+
+
+// TYPOGRAPHY
+// --------------------------------------------------
+
+@import url('//fonts.googleapis.com/css?family=Oswald|Noticia+Text');
+
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, h6 {
+  font-family: @headingsFontFamily;
+  color: @orange;
+  text-shadow: -1px 1px 0 darken(@orange, 30%);
+}
+
+h1, h2 {
+  text-shadow: -2px 2px 0 darken(@orange, 30%);
+}
+
+h1 {
+  line-height: 55px;
+}
+
+code, pre {
+  background-color: lighten(@blue, 8%);
+  border: none;
+  color: @textColor;
+}
+
+// SCAFFOLDING
+// --------------------------------------------------
+
+.page-header {
+  border-bottom: none;
+}
+
+blockquote {
+  border-left: 5px solid @blue;
+}
+
+blockquote.pull-right {
+  border-right: 5px solid @blue;
+}
+
+// NAVBAR
+// --------------------------------------------------
+
+.navbar {
+
+  .navbar-inner {
+    .box-shadow(none);
+    background-image: none;
+  }
+
+  .brand {
+    padding: 25px 20px 15px;
+    font-family: @headingsFontFamily;
+    font-size: 30px;
+    text-shadow: -2px 2px 0 darken(@orange, 30%);
+  }
+
+  .nav > li > a {
+    padding: 23px 20px 13px;
+    line-height: 30px;
+    font-family: @headingsFontFamily;
+    font-size: 22px;
+    text-shadow: -2px 2px 0 darken(@orange, 30%);
+  }
+
+  .brand:hover,
+  .nav > li > a:hover,
+  .nav > li.active > a:hover,
+  .nav > li.dropdown.open > a,
+  .nav > li.dropdown.open > a:hover {
+    position: relative;
+    top: 1px;
+    left: -1px;
+    color: @orange;
+    text-shadow: -1px 1px 0 darken(@orange, 30%);
+  }
+
+  .nav > .active > a,
+  .nav > .active > a:hover,
+  .nav > .active > a:focus {
+    .box-shadow(none);
+  }
+
+  .navbar-text {
+    padding: 23px 20px 13px;
+    line-height: 30px;
+    font-family: @headingsFontFamily;
+    font-size: 22px;
+    text-shadow: -2px 2px 0 @gray;
+  }
+
+  .navbar-search {
+    margin-top: 24px;
+  }
+
+  .navbar-search .search-query {
+    font-family: @baseFontFamily;
+    font-size: @baseFontSize;
+    line-height: @baseLineHeight;
+    .box-shadow(none);
+  }
+
+  &.navbar-inverse .navbar-search .search-query {
+    color: @blueDark;
+  }
+
+  .divider-vertical {
+    height: 70px;
+  }
+
+  .nav .dropdown-toggle .caret,
+  .nav .open.dropdown .caret {
+    margin-top: 14px;
+    border-top-color: @textColor;
+  }
+
+  .dropdown-menu::before {
+    border: none;
+  }
+
+  .dropdown-menu::after {
+    left: 20px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid lighten(@blue, 10%);
+  }
+
+  [class^="icon-"], [class*=" icon-"] {
+    vertical-align: 20%;
+  }
+
+  .btn-navbar {
+    background-color: @blue;
+    border-color: transparent;
+  }
+}
+
+@media (max-width: @navbarCollapseWidth) {
+
+  .navbar .nav-collapse {
+
+    .border-radius(4px);
+
+    .nav li > a {
+      color: @orange;
+
+      &:hover {
+        background-color: lighten(@blue, 10%) !important;
+        background-image: none;
+      }
+    }
+
+    .navbar-form,
+    .navbar-search {
+      border-top: none;
+      border-bottom: none;
+      .box-shadow(none);
+    }
+
+    .nav-header {
+      color: @textColor;
+    }
+  }
+}
+
+div.subnav {
+  margin: 0 1px;
+  background: @blue none;
+  border: none;
+
+  .nav > li > a,
+  .nav > li.active > a {
+    border-color: transparent;
+    color: @textColor;
+  }
+
+  .nav > li > a:hover,
+  .nav > li.active > a:hover {
+    background-color: lighten(@blue, 10%);
+    border-color: transparent;
+  }
+
+  .nav > li.active > a,
+  .nav > li.active > a:hover {
+    background: @orange none;
+    .box-shadow(none);
+    color: @white;
+  }
+
+  &.subnav-fixed {
+    top: @navbarHeight + 1;
+    margin: 0;
+    .box-shadow(none);
+
+    .nav > li > a,
+    .nav > li > a:hover,
+    .nav > li.active > a,
+    .nav > li.active > a:hover {
+      border-color: transparent;
+      .border-radius(0);
+    }
+
+    .nav > li > a:hover,
+    .nav > li.active > a:hover {
+      color: @white;
+    }
+  }
+
+  .nav > .active > a .caret,
+  .nav > .active > a:hover .caret {
+    border-top-color: @textColor;
+  }
+}
+
+// NAVIGATION
+// --------------------------------------------------
+
+.nav .nav-header {
+  color: @textColor;
+  text-shadow: none;
+}
+
+.nav-list {
+
+  padding: 0 15px;
+
+  & > li > a,
+  & > .nav-header {
+    text-shadow: none;
+    color: @textColor;
+  }
+
+  .active > a,
+  .active > a:hover {
+    text-shadow: none;
+    color: @white;
+  }
+
+  li > a:hover {
+    background-color: lighten(@blue, 10%);
+  }
+
+}
+
+.nav-tabs,
+.nav-tabs.nav-stacked > li > a {
+  border-color: transparent;
+}
+
+.nav-tabs {
+
+  & > li > a {
+    background-color: @blue;
+    color: @textColor;
+  }
+
+  li.active > a,
+  li.active > a:hover,
+  &.nav-stacked > li.active > a:hover {
+    color: @white;
+    background-color: @orange;
+    border-color: transparent;
+  }
+
+  li > a:hover,
+  &.nav-stacked > li > a:hover {
+    background-color: lighten(@blue, 10%);
+    border-color: transparent;
+  }
+
+  li.disabled > a:hover {
+    background-color: @blue;
+  }
+}
+
+.nav-pills {
+
+  & > li > a {
+    color: @textColor;
+    background-color: @blue;
+  }
+
+  & > li > a:hover {
+    background-color: lighten(@blue, 10%);
+    border-color: transparent;
+  }
+
+  & > .disabled > a:hover {
+    background-color: @blue;
+  }
+}
+
+.nav-tabs .open .dropdown-toggle,
+.nav-pills .open .dropdown-toggle,
+.nav > .open.active > a:hover {
+  background-color: lighten(@blue, 10%);
+  border-color: transparent;
+}
+
+.nav-pills .dropdown .caret,
+.nav-pills .dropdown:hover .caret {
+  border-top-color: @textColor;
+}
+
+.dropdown.open .dropdown-menu > li > a:hover,
+.dropdown.open .dropdown-menu > li.active > a:hover {
+  background-color: @orange;
+  color: @white;
+}
+
+.tabbable .nav-tabs,
+.tabbable .nav-tabs > li.active > a,
+.tabbable .nav-tabs > li > a:hover,
+.tabbable .nav-tabs > li.active > a:hover {
+  border-color: transparent;
+}
+
+.breadcrumb {
+  background-color: @blue;
+  background-image: none;
+  border: none;
+  .box-shadow(none);
+
+  li {
+    text-shadow: none;
+  }
+
+  .divider {
+    color: @textColor;
+  }
+}
+
+.pagination {
+
+  ul {
+    background-image: none;
+    border-color: transparent;
+  }
+
+  ul > li > a,
+  ul > li > span {
+    border: none;
+    color: @textColor;
+  }
+
+  ul > li > a:hover {
+    background: lighten(@blue, 10%);
+  }
+
+  ul > .active > a,
+  ul > .active > a:hover,
+  ul > .active > span,
+  ul > .active > span:hover {
+    background-color: @orange;
+    color: @white;
+  }
+
+  ul > .disabled > a,
+  ul > .disabled > a:hover,
+  ul > .disabled > span,
+  ul > .disabled > span:hover {
+    background: darken(@blue, 5%);
+  }
+}
+
+.pager {
+
+  li > a,
+  li > span {
+
+    background-color: @blue;
+    border: none;
+    color: @textColor;
+
+    &:hover {
+      background: lighten(@blue, 10%);
+    }
+  }
+
+  .disabled a,
+  .disabled a:hover {
+    background-color: @blue;
+  }
+}
+
+// BUTTONS
+// --------------------------------------------------
+
+.btn,
+.btn:hover {
+  text-shadow: none;
+  background-image: none;
+  .box-shadow(-2px 2px 0 rgba(0, 0, 0, 0.2));
+  border: none;
+}
+
+.btn-warning {
+  background-color: @yellow;
+}
+
+.btn-primary, .btn-primary:hover {
+  .box-shadow(-2px 2px 0 darken(@btnPrimaryBackground, 30%));
+}
+
+.btn-warning, .btn-warning:hover {
+  .box-shadow(-2px 2px 0 darken(@yellow, 30%));
+}
+
+.btn-danger, .btn-danger:hover {
+  .box-shadow(-2px 2px 0 darken(#ee5f5b, 30%));
+}
+
+.btn-success, .btn-success:hover {
+  .box-shadow(-2px 2px 0 darken(#62c462, 30%));
+}
+
+.btn-info, .btn-info:hover {
+  .box-shadow(-2px 2px 0 darken(#5bc0de, 40%));
+}
+
+.btn-inverse, .btn-inverse:hover {
+  .box-shadow(-2px 2px 0 darken(#454545, 20%));
+}
+
+.btn.dropdown-toggle, .btn.dropdown-toggle:hover {
+  .box-shadow(0 2px 0 darken(@white, 80%));
+}
+
+.btn-primary.dropdown-toggle, .btn-primary.dropdown-toggle:hover {
+  .box-shadow(0 2px 0 darken(@btnPrimaryBackground, 30%));
+}
+
+.btn-warning.dropdown-toggle, .btn-warning.dropdown-toggle:hover {
+  .box-shadow(0 2px 0 darken(@yellow, 30%));
+}
+
+.btn-danger.dropdown-toggle, .btn-danger.dropdown-toggle:hover {
+  .box-shadow(0 2px 0 darken(#ee5f5b, 30%));
+}
+
+.btn-success.dropdown-toggle, .btn-success.dropdown-toggle:hover {
+  .box-shadow(0 2px 0 darken(#62c462, 30%));
+}
+
+.btn-info.dropdown-toggle, .btn-info.dropdown-toggle:hover {
+  .box-shadow(0 2px 0 darken(#5bc0de, 40%));
+}
+
+.btn-inverse.dropdown-toggle, .btn-inverse.dropdown-toggle:hover {
+  .box-shadow(0 2px 0 darken(#454545, 20%));
+}
+
+.btn.active,
+.btn:active {
+  position: relative;
+  top: 1px;
+  left: -1px;
+  .box-shadow(-1px 1px 0 darken(@white, 80%))
+}
+
+.btn.disabled,
+.btn.disabled.active,
+.btn.disabled:active,
+.btn[disabled] {
+  .box-shadow(none);
+  text-shadow: none;
+  top: 0;
+  left: 0;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  vertical-align: -13%;
+}
+
+// TABLES
+// -----------------------------------------------------
+
+.table,
+.table-striped tbody > tr > td:first-child,
+.table-striped tbody > tr > td:last-child, {
+  .border-radius(4px);
+}
+
+// FORMS
+// --------------------------------------------------
+
+input, button, select, textarea {
+  font-family: 'Noticia Text', serif;
+}
+
+legend {
+  border-bottom: none;
+  font-family: @headingsFontFamily;
+  color: @orange;
+  text-shadow: -2px 2px 0 darken(@orange, 30%);
+}
+
+label {
+  color: @textColor;
+  line-height: 15px;
+}
+
+.help-block {
+  color: @textColor;
+  opacity: 0.6;
+}
+
+.form-actions {
+  border-top: none;
+}
+
+.control-group.warning {
+  .formFieldState(lighten(@warningText, 10%), lighten(@warningText, 10%), @warningBackground);
+}
+
+.control-group.error {
+  .formFieldState(lighten(@errorText, 10%), lighten(@errorText, 10%), @errorBackground);
+}
+
+.control-group.success {
+  .formFieldState(lighten(@successText, 10%), lighten(@successText, 10%), @successBackground);
+}
+
+.input-append .add-on,
+.input-prepend .add-on,
+.input-append .btn,
+.input-prepend .btn {
+  color: @bodyBackground;
+}
+
+// DROPDOWNS
+// --------------------------------------------------
+
+.dropdown .caret {
+  margin-top: 14px;
+  opacity: 1;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid lighten(@blue, 10%);
+}
+
+// ALERTS, LABELS, BADGES
+// --------------------------------------------------
+
+.label {
+  background-color: @blue;
+  color: @textColor;
+}
+
+.label-important {
+  background-color: @errorText;
+}
+
+.label-warning {
+  background-color: @orange;
+}
+
+.label-success {
+  background-color: @successText;
+}
+
+.label-info {
+  background-color: @infoText;
+}
+
+.alert {
+  background-color: @blue;
+  border: none;
+  color: @textColor;
+  text-shadow: none;
+
+  a {
+    color: lighten(@orange, 12%);
+  }
+}
+
+.alert .alert-heading {
+  color: @orange;
+}
+
+.alert-success {
+  background-color: @successText;
+}
+
+.alert-danger,
+.alert-error {
+  background-color: @errorText;
+}
+
+.alert-info {
+  background-color: @infoText;
+}
+
+// MISC
+// --------------------------------------------------
+
+.well, .hero-unit {
+  border: none;
+  .box-shadow(none);
+}
+
+.hero-unit h1 {
+  color: @orange;
+  line-height: 2em;
+}
+
+.progress {
+  background-color: darken(@blueDark, 5%);
+  background-image: none;
+  .box-shadow(none);
+
+  .bar {
+    .box-shadow(none);
+  }
+}
+
+.thumbnail {
+  border: none;
+  background: @blue;
+  .border-radius(3px);
+}
+
+.modal {
+  background-color: transparent;
+
+  &-header,
+  &-body,
+  &-footer {
+    .box-shadow(none);
+    background-color: @bodyBackground;
+    border: none;
+  }
+
+  &-header {
+    .border-radius(4px 4px 0 0);
+  }
+
+  &-footer {
+    .border-radius(0 0 4px 4px);
+  }
+}
+
+// MEDIA QUERIES
+// --------------------------------------------------
+
+@media (max-width: 768px) {
+
+  div.subnav {
+
+    .nav > li {
+
+      &:first-child > a,
+      &:first-child > a:hover,
+      &.active:first-child > a,
+      &.active:first-child > a:hover {
+        .border-radius(4px 4px 0 0);
+      }
+
+      &:last-child > a,
+      &:last-child > a:hover,
+      &.active:last-child > a,
+      &.active:last-child > a:hover {
+        .border-radius(0 0 4px 4px);
+      }
+    }
+  }
+}

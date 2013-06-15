@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href="twitter-bootstrap/bootstrap-testLess.min.css" media="all" type="text/css" rel="stylesheet">
+    <link href="twitter-bootstrap/responsive-testLess.min.css" media="all" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="container" style="width: auto">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#">Project Name</a>
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li class="active"><a href="#"><i class="icon-home icon-white"></i> Home</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li class="nav-header">Nav header</li>
+                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-search pull-right" action="">
+                    <input type="text" class="search-query span2" placeholder="Search">
+                </form>
+                <ul class="nav pull-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utility <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Item 1</a></li>
+                            <li><a href="#">Item 2</a></li>
+                            <li><a href="#">Item 3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.nav-collapse -->
+        </div><!-- /.container -->
+    </div><!-- /navbar-inner -->
+</div>
+<div class="row">
+    <h1>Sample Payment!</h1>
+<form class="form-horizontal span6">
+    <fieldset>
+        <legend>Payment</legend>
+
+        <div class="control-group">
+            <label class="control-label">Card Holder's Name</label>
+            <div class="controls">
+                <input type="text" class="input-block-level" pattern="\w+ \w+.*" title="Fill your first and last name" required>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Card Number</label>
+            <div class="controls">
+                <div class="row-fluid">
+                    <div class="span3">
+                        <input type="text" class="input-block-level" autocomplete="off" maxlength="4" pattern="\d{4}" title="First four digits" required>
+                    </div>
+                    <div class="span3">
+                        <input type="text" class="input-block-level" autocomplete="off" maxlength="4" pattern="\d{4}" title="Second four digits" required>
+                    </div>
+                    <div class="span3">
+                        <input type="text" class="input-block-level" autocomplete="off" maxlength="4" pattern="\d{4}" title="Third four digits" required>
+                    </div>
+                    <div class="span3">
+                        <input type="text" class="input-block-level" autocomplete="off" maxlength="4" pattern="\d{4}" title="Fourth four digits" required>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Card Expiry Date</label>
+            <div class="controls">
+                <div class="row-fluid">
+                    <div class="span9">
+                        <select class="input-block-level">
+                            <option>January</option>
+                            <option>...</option>
+                            <option>December</option>
+                        </select>
+                    </div>
+                    <div class="span3">
+                        <select class="input-block-level">
+                            <option>2013</option>
+                            <option>...</option>
+                            <option>2015</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Card CVV</label>
+            <div class="controls">
+                <div class="row-fluid">
+                    <div class="span3">
+                        <input type="text" class="input-block-level" autocomplete="off" maxlength="3" pattern="\d{3}" title="Three digits at back of your card" required>
+                    </div>
+                    <div class="span8">
+                        <!-- screenshot may be here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn">Cancel</button>
+        </div>
+    </fieldset>
+</form>
+</div>
+
+<div class="row">
+    <div class="span8">
+        <form action="billing" method="post" class="form-horizontal" id="billingform" accept-charset="utf-8">
+            <div class="control-group">
+                <label for="email" class="control-label">
+                    Billing E-Mail
+                </label>
+                <div class="controls">
+                    <input name="email" type="email" value="" id="email">
+                    <span class="help-inline">  Where should we send invoices?</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="address" class="control-label">
+                    Street Address
+                </label>
+                <div class="controls"><input name="address" placeholder="W 123 Street" type="text" value="" id="address"><span class="help-inline">  Street Name and/or apartment number</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="zip" class="control-label">
+                    Zip Code
+                </label>
+                <div class="controls"><input name="zip" type="text" value="" id="zip">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="city" class="control-label">
+                    City
+                </label>
+                <div class="controls"><input name="city" type="text" value="" id="city">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="country" class="control-label">
+                    Country
+                </label>
+                <div class="controls">
+                    <select name="country" id="country">
+                        <option value=""></option>
+                        <option value="AR">Argentina</option>
+                        <option value="AU">Australia</option>
+                        <option value="AT">Austria</option>
+                        <option value="BY">Belarus</option>
+                        <option value="BE">Belgium</option>
+                        <option value="BA">Bosnia and Herzegovina</option>
+                        <option value="BR">Brazil</option>
+                        <option value="BG">Bulgaria</option>
+                        <option value="CA">Canada</option>
+                        <option value="CL">Chile</option>
+                        <option value="CN">China</option>
+                        <option value="CO">Colombia</option>
+                        <option value="CR">Costa Rica</option>
+                        <option value="HR">Croatia</option>
+                        <option value="CU">Cuba</option>
+                        <option value="CY">Cyprus</option>
+                        <option value="CZ">Czech Republic</option>
+                        <option value="DK">Denmark</option>
+                        <option value="DO">Dominican Republic</option>
+                        <option value="EG">Egypt</option>
+                        <option value="EE">Estonia</option>
+                        <option value="FI">Finland</option>
+                        <option value="FR">France</option>
+                        <option value="GE">Georgia</option>
+                        <option value="DE">Germany</option>
+                        <option value="GI">Gibraltar</option>
+                        <option value="GR">Greece</option>
+                        <option value="HK">Hong Kong S.A.R., China</option>
+                        <option value="HU">Hungary</option>
+                        <option value="IS">Iceland</option>
+                        <option value="IN">India</option>
+                        <option value="ID">Indonesia</option>
+                        <option value="IR">Iran</option>
+                        <option value="IQ">Iraq</option>
+                        <option value="IE">Ireland</option>
+                        <option value="IL">Israel</option>
+                        <option value="IT">Italy</option>
+                        <option value="JM">Jamaica</option>
+                        <option value="JP">Japan</option>
+                        <option value="KZ">Kazakhstan</option>
+                        <option value="KW">Kuwait</option>
+                        <option value="KG">Kyrgyzstan</option>
+                        <option value="LA">Laos</option>
+                        <option value="LV">Latvia</option>
+                        <option value="LB">Lebanon</option>
+                        <option value="LT">Lithuania</option>
+                        <option value="LU">Luxembourg</option>
+                        <option value="MK">Macedonia</option>
+                        <option value="MY">Malaysia</option>
+                        <option value="MT">Malta</option>
+                        <option value="MX">Mexico</option>
+                        <option value="MD">Moldova</option>
+                        <option value="MC">Monaco</option>
+                        <option value="ME">Montenegro</option>
+                        <option value="MA">Morocco</option>
+                        <option value="NL">Netherlands</option>
+                        <option value="NZ">New Zealand</option>
+                        <option value="NI">Nicaragua</option>
+                        <option value="KP">North Korea</option>
+                        <option value="NO">Norway</option>
+                        <option value="PK">Pakistan</option>
+                        <option value="PS">Palestinian Territory</option>
+                        <option value="PE">Peru</option>
+                        <option value="PH">Philippines</option>
+                        <option value="PL">Poland</option>
+                        <option value="PT">Portugal</option>
+                        <option value="PR">Puerto Rico</option>
+                        <option value="QA">Qatar</option>
+                        <option value="RO">Romania</option>
+                        <option value="RU">Russia</option>
+                        <option value="SA">Saudi Arabia</option>
+                        <option value="RS">Serbia</option>
+                        <option value="SG">Singapore</option>
+                        <option value="SK">Slovakia</option>
+                        <option value="SI">Slovenia</option>
+                        <option value="ZA">South Africa</option>
+                        <option value="KR">South Korea</option>
+                        <option value="ES">Spain</option>
+                        <option value="LK">Sri Lanka</option>
+                        <option value="SE">Sweden</option>
+                        <option value="CH">Switzerland</option>
+                        <option value="TW">Taiwan</option>
+                        <option value="TH">Thailand</option>
+                        <option value="TN">Tunisia</option>
+                        <option value="TR">Turkey</option>
+                        <option value="UA">Ukraine</option>
+                        <option value="AE">United Arab Emirates</option>
+                        <option value="GB">United Kingdom</option>
+                        <option value="US">USA</option>
+                        <option value="UZ">Uzbekistan</option>
+                        <option value="VN">Vietnam</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-large btn-primary">Save Billing Address</button>
+            </div>
+        </form>
+    </div> <!-- .span8 -->
+</div>
+
+
+    <h1>Sample Sign In! Sign Out!</h1>
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="span6">
+                    <div class="area">
+                        <form class="form-horizontal">
+                            <div class="heading">
+                                <h4 class="form-heading">Sign In</h4>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="inputCompanyName">Company Name</label>
+                                <div class="controls">
+                                    <input type="text" id="inputCompanyName" placeholder="E.g. Some Software Pvt. Ltd.">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="inputUsername">Username</label>
+                                <div class="controls">
+                                    <input type="text" id="inputUsername" placeholder="E.g. ashwinhegde">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="inputPassword">Password</label>
+                                <div class="controls">
+                                    <input type="password" id="inputPassword" placeholder="Min. 8 Characters">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <label class="checkbox">
+                                        <input type="checkbox"> Keep me signed in   ¦
+                                        <a href="#" class="btn btn-link">Forgot my password</a>
+                                    </label>
+                                    <button type="submit" class="btn btn-success">Sign In</button>
+                                    <button type="button" class="btn">Help</button>
+                                </div>
+                            </div>
+                            <div class="alert alert-error">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>Access Denied!</strong> Please provide valid authorization.
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="span6">
+                    <div class="area">
+                        <form class="form-horizontal">
+                            <div class="heading">
+                                <h4 class="form-heading">Sign Up</h4>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="inputCompanyName">Company Name</label>
+                                <div class="controls">
+                                    <input type="text" id="inputCompanyName" placeholder="E.g. Some Software Pvt. Ltd.">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="inputFirst">First Name</label>
+                                <div class="controls">
+                                    <input type="text" id="inputFirst" placeholder="E.g. Ashwin">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="inputLast">Last Name</label>
+                                <div class="controls">
+                                    <input type="text" id="inputLast" placeholder="E.g. Hegde">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="inputEmail">Email</label>
+                                <div class="controls">
+                                    <input type="text" id="inputEmail" placeholder="E.g. ashwinh@cybage.com">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="inputUser">Username</label>
+                                <div class="controls">
+                                    <input type="text" id="inputUser" placeholder="E.g. ashwinhegde">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="inputPassword">Password</label>
+                                <div class="controls">
+                                    <input type="password" id="inputPassword" placeholder="Min. 8 Characters">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <label class="checkbox">
+                                        <input type="checkbox"> I agree all your <a href="#">Terms of Services</a>
+                                    </label>
+                                    <button type="submit" class="btn btn-success">Sign Up</button>
+                                    <button type="button" class="btn">Help</button>
+                                </div>
+                            </div>
+                            <div class="alert alert-info">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>Confirmation: </strong> A confirmation email has been sent to your email.<br>
+                                Thank you for your registration.
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

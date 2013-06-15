@@ -1,0 +1,884 @@
+// Cyborg 2.3.2
+// Variables
+// --------------------------------------------------
+
+
+// Global values
+// --------------------------------------------------
+
+
+// Grays
+// -------------------------
+@black:                 #000;
+@grayDarker:            #020202;
+@grayDark:              #222;
+@gray:                  #999;
+@grayLight:             #ADAFAE;
+@grayLighter:           #eee;
+@white:                 #fff;
+
+
+// Accent colors
+// -------------------------
+@blue:                  #33B5E5;
+@blueDark:              #0099CC;
+@green:                 #669900;
+@red:                   #CC0000;
+@yellow:                #ECBB13;
+@orange:                #FF8800;
+@pink:                  #FF4444;
+@purple:                #9933CC;
+
+
+// Scaffolding
+// -------------------------
+@bodyBackground:        #060606;
+@textColor:             @gray;
+
+
+// Links
+// -------------------------
+@linkColor:             @blue;
+@linkColorHover:        @white;
+
+
+// Typography
+// -------------------------
+@sansFontFamily:        'Droid Sans', sans-serif;
+@serifFontFamily:       Georgia, "Times New Roman", Times, serif;
+@monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace;
+
+@baseFontSize:          14px;
+@baseFontFamily:        @sansFontFamily;
+@baseLineHeight:        20px;
+@altFontFamily:         @serifFontFamily;
+
+@headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
+@headingsFontWeight:    normal;    // instead of browser default, bold
+@headingsColor:         @white; // empty to use BS default, @textColor
+
+
+// Component sizing
+// -------------------------
+// Based on 14px font-size and 20px line-height
+
+@fontSizeLarge:         @baseFontSize * 1.25; // ~18px
+@fontSizeSmall:         @baseFontSize * 0.85; // ~12px
+@fontSizeMini:          @baseFontSize * 0.75; // ~11px
+
+@paddingLarge:          11px 19px; // 44px
+@paddingSmall:          2px 10px;  // 26px
+@paddingMini:           0px 6px;   // 22px
+
+@baseBorderRadius:      4px;
+@borderRadiusLarge:     6px;
+@borderRadiusSmall:     3px;
+
+
+// Tables
+// -------------------------
+@tableBackground:                   transparent; // overall background-color
+@tableBackgroundAccent:             rgba(100, 100, 100, 0.1); // for striping
+@tableBackgroundHover:              @grayDark; // for hover
+@tableBorder:                       @grayDark; // table and cell border
+
+// Buttons
+// -------------------------
+@btnBackground:                     darken(@gray, 20%);
+@btnBackgroundHighlight:            darken(@gray, 25%);
+@btnBorder:                         rgba(0, 0, 0, 0);
+
+@btnPrimaryBackground:              @blueDark;
+@btnPrimaryBackgroundHighlight:     darken(@blueDark, 10%);
+
+@btnInfoBackground:                 darken(@gray, 40%);
+@btnInfoBackgroundHighlight:        darken(@gray, 50%);
+
+@btnSuccessBackground:              lighten(@green, 10%);
+@btnSuccessBackgroundHighlight:     @green;
+
+@btnWarningBackground:              lighten(@orange, 15%);
+@btnWarningBackgroundHighlight:     @orange;
+
+@btnDangerBackground:               lighten(@red, 10%);
+@btnDangerBackgroundHighlight:      @red;
+
+@btnInverseBackground:              lighten(@purple, 5%);
+@btnInverseBackgroundHighlight:     @purple;
+
+
+// Forms
+// -------------------------
+@inputBackground:               #ccc;
+@inputBorder:                   #bbb;
+@inputBorderRadius:             @baseBorderRadius;
+@inputDisabledBackground:       #555;
+@formActionsBackground:         transparent;
+@inputHeight:                   @baseLineHeight + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
+
+
+// Dropdowns
+// -------------------------
+@dropdownBackground:            #131517;
+@dropdownBorder:                rgba(0,0,0,.2);
+@dropdownDividerTop:            transparent;
+@dropdownDividerBottom:         #222;
+
+@dropdownLinkColor:             @textColor;
+@dropdownLinkColorHover:        @white;
+@dropdownLinkColorActive:       @white;
+
+@dropdownLinkBackgroundActive:  @linkColor;
+@dropdownLinkBackgroundHover:   @linkColor;
+
+
+
+// COMPONENT VARIABLES
+// --------------------------------------------------
+
+
+// Z-index master list
+// -------------------------
+// Used for a bird's eye view of components dependent on the z-axis
+// Try to avoid customizing these :)
+@zindexDropdown:          1000;
+@zindexPopover:           1010;
+@zindexTooltip:           1020;
+@zindexFixedNavbar:       1030;
+@zindexModalBackdrop:     1040;
+@zindexModal:             1050;
+
+
+// Sprite icons path
+// -------------------------
+@iconSpritePath:          "../img/glyphicons-halflings.png";
+@iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png";
+
+
+// Input placeholder text color
+// -------------------------
+@placeholderText:         @grayLight;
+
+
+// Hr border color
+// -------------------------
+@hrBorder:                @grayDark;
+
+
+// Horizontal forms & lists
+// -------------------------
+@horizontalComponentOffset:       180px;
+
+
+// Wells
+// -------------------------
+@wellBackground:                  #131517;
+
+
+// Navbar
+// -------------------------
+@navbarCollapseWidth:             979px;
+@navbarCollapseDesktopWidth:      @navbarCollapseWidth + 1;
+
+@navbarHeight:                    50px;
+@navbarBackgroundHighlight:       @grayDarker;
+@navbarBackground:                @grayDarker;
+@navbarBorder:                    darken(@navbarBackground, 12%);
+
+@navbarText:                      @grayLight;
+@navbarLinkColor:                 @grayLight;
+@navbarLinkColorHover:            @white;
+@navbarLinkColorActive:           @navbarLinkColorHover;
+@navbarLinkBackgroundHover:       transparent;
+@navbarLinkBackgroundActive:      @navbarBackground;
+
+@navbarBrandColor:                @navbarLinkColor;
+
+// Inverted navbar
+@navbarInverseBackground:                #252A30;
+@navbarInverseBackgroundHighlight:       #252A30;
+@navbarInverseBorder:                    transparent;
+
+@navbarInverseText:                      @grayLight;
+@navbarInverseLinkColor:                 @grayLight;
+@navbarInverseLinkColorHover:            @white;
+@navbarInverseLinkColorActive:           @navbarInverseLinkColorHover;
+@navbarInverseLinkBackgroundHover:       #242A31;
+@navbarInverseLinkBackgroundActive:      @navbarInverseLinkBackgroundHover;
+
+@navbarInverseSearchBackground:          lighten(@navbarInverseBackground, 25%);
+@navbarInverseSearchBackgroundFocus:     @white;
+@navbarInverseSearchBorder:              @navbarInverseBackground;
+@navbarInverseSearchPlaceholderColor:    @white;
+
+@navbarInverseBrandColor:                @navbarInverseLinkColor;
+
+
+// Pagination
+// -------------------------
+@paginationBackground:                @bodyBackground;
+@paginationBorder:                    transparent;
+@paginationActiveBackground:          @blue;
+
+
+// Hero unit
+// -------------------------
+@heroUnitBackground:              #131517;
+@heroUnitHeadingColor:            inherit;
+@heroUnitLeadColor:               inherit;
+
+
+// Form states and alerts
+// -------------------------
+@warningText:             darken(#c09853, 10%);
+@warningBackground:       @grayLighter;
+@warningBorder:           transparent;
+
+@errorText:               #b94a48;
+@errorBackground:         @grayLighter;
+@errorBorder:             darken(spin(@errorBackground, -10), 3%);
+
+@successText:             #468847;
+@successBackground:       @grayLighter;
+@successBorder:           darken(spin(@successBackground, -10), 5%);
+
+@infoText:                @blueDark;
+@infoBackground:          @grayLighter;
+@infoBorder:              darken(spin(@infoBackground, -10), 7%);
+
+
+// Tooltips and popovers
+// -------------------------
+@tooltipColor:            #fff;
+@tooltipBackground:       @heroUnitBackground;
+@tooltipArrowWidth:       5px;
+@tooltipArrowColor:       @tooltipBackground;
+
+@popoverBackground:       @heroUnitBackground;
+@popoverArrowWidth:       10px;
+@popoverArrowColor:       @popoverBackground;
+@popoverTitleBackground:  @popoverBackground;
+
+// Special enhancement for popovers
+@popoverArrowOuterWidth:  @popoverArrowWidth + 1;
+@popoverArrowOuterColor:  rgba(0,0,0,.25);
+
+
+
+// GRID
+// --------------------------------------------------
+
+
+// Default 940px grid
+// -------------------------
+@gridColumns:             12;
+@gridColumnWidth:         60px;
+@gridGutterWidth:         20px;
+@gridRowWidth:            (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+
+// 1200px min
+@gridColumnWidth1200:     70px;
+@gridGutterWidth1200:     30px;
+@gridRowWidth1200:        (@gridColumns * @gridColumnWidth1200) + (@gridGutterWidth1200 * (@gridColumns - 1));
+
+// 768px-979px
+@gridColumnWidth768:      42px;
+@gridGutterWidth768:      20px;
+@gridRowWidth768:         (@gridColumns * @gridColumnWidth768) + (@gridGutterWidth768 * (@gridColumns - 1));
+
+
+// Fluid grid
+// -------------------------
+@fluidGridColumnWidth:    percentage(@gridColumnWidth/@gridRowWidth);
+@fluidGridGutterWidth:    percentage(@gridGutterWidth/@gridRowWidth);
+
+// 1200px min
+@fluidGridColumnWidth1200:     percentage(@gridColumnWidth1200/@gridRowWidth1200);
+@fluidGridGutterWidth1200:     percentage(@gridGutterWidth1200/@gridRowWidth1200);
+
+// 768px-979px
+@fluidGridColumnWidth768:      percentage(@gridColumnWidth768/@gridRowWidth768);
+@fluidGridGutterWidth768:      percentage(@gridGutterWidth768/@gridRowWidth768);
+
+// Cyborg 2.3.2
+// Bootswatch
+// -----------------------------------------------------
+
+
+// TYPOGRAPHY
+// -----------------------------------------------------
+
+@import url('//fonts.googleapis.com/css?family=Droid+Sans:400,700');
+
+label, input, button, select, textarea,
+.navbar .search-query:-moz-placeholder,
+.navbar .search-query::-webkit-input-placeholder {
+  font-family: 'Droid Sans', sans-serif;
+  color: @gray;
+}
+
+code, pre {
+  background-color: @grayLighter;
+}
+
+blockquote {
+  border-left: 5px solid @grayDark;
+
+  &.pull-right {
+    border-right: 5px solid @grayDark;
+  }
+}
+
+// SCAFFOLDING
+// -----------------------------------------------------
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
+  #gradient > .vertical (@bodyBackground, #252A30);
+}
+
+.page-header {
+  border-bottom: 1px solid @grayDark
+}
+
+hr {
+  border-bottom: none;
+}
+
+// NAVBAR
+// -----------------------------------------------------
+
+.navbar {
+
+  .navbar-inner {
+    .border-radius(0);
+    .box-shadow(none);
+    border-bottom: 1px solid @grayDark;
+  }
+
+  .brand {
+    padding: 15px 20px 15px;
+    color: @grayLighter;
+    font-weight: normal;
+    text-shadow: none;
+  }
+
+  .nav > li > a {
+    padding: 15px 15px 14px;
+    border-bottom: 1px solid transparent;
+  }
+
+  .nav > li > a:hover,
+  .nav > .active > a,
+  .nav > .active > a:hover {
+    border-bottom: 1px solid @blue;
+  }
+
+  .nav > .active > a,
+  .nav > .active > a:hover,
+  .nav > .active > a:focus {
+    .box-shadow(none);
+  }
+
+  .navbar-text {
+    margin-bottom: 1px;
+    padding: 15px 15px 14px;
+    line-height: inherit;
+  }
+
+  .divider-vertical {
+    margin: 0;
+    border-left: 1px solid @grayDark;
+    border-right-width: 0;
+  }
+
+  .search-query,
+  .search-query:focus,
+  .search-query.focused {
+    .border-radius(1px);
+    background-color: @grayDark;
+    line-height: normal;
+    color: @grayLight;
+    text-shadow: none;
+    .placeholder(@gray);
+  }
+
+  &-inverse {
+
+  }
+}
+
+@media (max-width: @navbarCollapseWidth) {
+
+  .navbar .nav-collapse {
+
+    .nav li > a {
+      border: none;
+      color: @grayLighter;
+      font-weight: normal;
+      text-shadow: none;
+
+      &:hover {
+        border: none;
+        background-color: @blue;
+      }
+    }
+
+    .nav .active > a {
+      border: none;
+      background-color: @blue;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: @blue;
+    }
+
+    .navbar-form,
+    .navbar-search {
+      border-top: none;
+      border-bottom: none;
+    }
+
+    .nav-header {
+      color: rgba(128, 128, 128, 0.6);
+    }
+  }
+
+  .navbar-inverse .nav-collapse {
+
+    .nav li > a:hover {
+      background-color: #111;
+    }
+
+    .nav .active > a {
+      background-color: #111;
+    }
+
+    .nav li.dropdown.open > .dropdown-toggle,
+    .nav li.dropdown.active > .dropdown-toggle,
+    .nav li.dropdown.open.active > .dropdown-toggle {
+      background-color: #111;
+    }
+  }
+}
+
+div.subnav {
+
+  margin: 0 1px;
+  background-color: @grayDarker;
+  background-image: none;
+  border: none;
+  border-bottom: 1px solid @grayDark;
+
+  .nav > li > a,
+  .nav > li:first-child > a,
+  .nav > li:first-child > a:hover {
+    padding: 11px 12px;
+    border: none;
+    background-color: @grayDarker;
+    color: @grayLight;
+  }
+
+  .nav > li > a:hover,
+  .nav > li.active > a,
+  .nav > li.active > a:hover,
+  .nav > li:first-child > a:hover {
+    padding: 11px 12px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid @blue;
+    color: @white;
+  }
+
+  .nav li.nav-header {
+    text-shadow: none;
+  }
+
+
+
+
+  &-fixed {
+    top: @navbarHeight;
+    margin: 0;
+  }
+}
+
+// NAV
+// -----------------------------------------------------
+
+.nav-tabs {
+
+  border-bottom: 1px solid @grayDark;
+
+  li > a:hover,
+  li.active > a,
+  li.active > a:hover {
+    border-color: transparent;
+    background-color: @blue;
+    color: @white;
+  }
+
+  li.disabled > a {
+    color: @textColor;
+  }
+
+  .open .dropdown-toggle {
+    background-color: #060606;
+    border-color: transparent;
+  }
+}
+
+.nav-pills {
+
+  li > a:hover {
+    background-color: @blue;
+    color: @white;
+  }
+
+  li.disabled > a {
+    color: @textColor;
+  }
+
+  .open .dropdown-toggle {
+    background-color: #060606;
+  }
+
+  .dropdown-menu li > a:hover {
+    border: none;
+  }
+}
+
+.nav-list {
+
+  li > a {
+    text-shadow: none;
+  }
+
+  li > a:hover {
+    background-color: @blue;
+    color: @white;
+  }
+
+  .nav-header {
+    text-shadow: none;
+  }
+
+  .divider {
+    background-color: transparent;
+    border-bottom: 1px solid @grayDark;
+  }
+}
+
+.nav-stacked {
+
+  li > a {
+    border: 1px solid @grayDark !important;
+  }
+
+  li > a:hover,
+  li.active > a {
+    background-color: @blue;
+    color: @white;
+  }
+}
+
+.tabbable  {
+  .nav-tabs,
+  .nav-tabs li.active > a {
+    border-color: @grayDark;
+  }
+}
+
+.breadcrumb {
+
+  background-color: transparent;
+  background-image: none;
+  border-width: 0;
+  .box-shadow(none);
+  font-size: 14px;
+
+  li {
+    text-shadow: none;
+  }
+
+  li > a {
+    color: @blue;
+    text-shadow: none;
+  }
+}
+
+.pagination {
+
+  ul {
+    .box-shadow(none);
+  }
+
+  ul > li > a:hover,
+  ul > .active > a,
+  ul > .active > span {
+  // color: @white;
+  }
+
+  ul > .disabled > a,
+  ul > .disabled > a:hover,
+  ul > .disabled > span,
+  ul > .disabled > span:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.pager {
+
+  li > a,
+  li > span {
+    background-color: @bodyBackground;
+    border: none;
+
+    &:hover {
+      background-color: @blue;
+    }
+  }
+
+  .disabled a,
+  .disabled a:hover {
+    background-color: @bodyBackground;
+  }
+
+}
+
+// BUTTONS
+// -----------------------------------------------------
+
+.btn {
+  .box-shadow(1px 1px 2px #111);
+  .buttonBackground(darken(@gray, 20%), darken(@gray, 30%));
+  color: @white;
+  text-shadow: none;
+
+  &:hover {
+    text-shadow: none;
+    color: @white;
+  }
+}
+
+.btn-primary {
+  .buttonBackground(@blueDark, darken(@blueDark, 10%));
+}
+
+.btn-warning {
+  .buttonBackground(lighten(@orange, 10%), @orange);
+}
+
+.btn-danger {
+  .buttonBackground(lighten(@red, 10%), @red);
+}
+
+.btn-success {
+  .buttonBackground(lighten(@green, 10%), @green);
+}
+
+.btn-info {
+  .buttonBackground(darken(@gray, 40%), darken(@gray, 50%));
+}
+
+.btn-inverse {
+  .buttonBackground(lighten(@purple, 5%), @purple);
+}
+
+.btn .caret {
+  border-top: 4px solid black;
+  opacity: 0.3;
+}
+
+.btn-group > .dropdown-menu > li > a:hover {
+  border-bottom: 0;
+}
+
+.btn.disabled, .btn[disabled] {
+  background-color: @grayLight;
+}
+
+// FORMS
+// -----------------------------------------------------
+
+input, textarea, select {
+  border-width: 2px;
+  .border-radius(1px);
+}
+
+select, textarea,
+input[type="text"], input[type="password"], input[type="datetime"],
+input[type="datetime-local"], input[type="date"], input[type="month"],
+input[type="time"], input[type="week"], input[type="number"],
+input[type="email"], input[type="url"], input[type="search"],
+input[type="tel"], input[type="color"], .uneditable-input {
+  color: @grayDark;
+}
+
+input[disabled], select[disabled], textarea[disabled], input[readonly], select[readonly], textarea[readonly], .uneditable-input {
+  border-color: #444;
+}
+
+input:focus,
+textarea:focus,
+input.focused,
+textarea.focused {
+  border-color: rgba(82,168,236,1);
+  outline: 0;
+  outline: thin dotted \9; /* IE6-9 */
+}
+
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus,
+select:focus {
+  .box-shadow(none); // override for file inputs
+  .tab-focus();
+}
+
+legend, label {
+  color: @textColor;
+  border-bottom: 0px solid #222;
+}
+
+.form-actions {
+  border-top: 1px solid #222;
+}
+
+// TABLES
+// -----------------------------------------------------
+
+.table {
+
+  .border-radius(1px);
+
+  tbody tr.success td {
+    background-color: @green;
+    color: @white;
+  }
+
+  tbody tr.error td {
+    background-color: @red;
+    color: @white;
+  }
+
+  tbody tr.info td {
+    background-color: @blue;
+    color: @white;
+  }
+}
+
+// DROPDOWNS
+// -----------------------------------------------------
+
+.dropdown-menu {
+  .box-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+}
+
+// ALERTS, LABELS, BADGES
+// -----------------------------------------------------
+
+.alert,
+.alert .alert-heading,
+.alert-success,
+.alert-success .alert-heading,
+.alert-danger,
+.alert-error,
+.alert-danger .alert-heading,
+.alert-error .alert-heading,
+.alert-info,
+.alert-info .alert-heading {
+  color: @grayLighter;
+  text-shadow: none;
+  border: none;
+}
+
+.label {
+  color: @grayLighter;
+}
+
+.label, .alert { background-color: darken(@gray, 20%); }
+
+.label:hover { background-color: darken(@gray, 30%); }
+
+.label-important,
+.alert-danger,
+.alert-error { background-color: @red; }
+
+.label-important:hover { background-color: darken(@red, 10%); }
+
+.label-warning   { background-color: darken(@orange, 10%); }
+
+.label-warning:hover { background-color: darken(@orange, 20%); }
+
+.label-success, .alert-success { background-color: darken(@green, 3%); }
+
+.label-success:hover { background-color: darken(@green, 13%); }
+
+.label-info, .alert-info { background-color: darken(@blueDark, 10%); }
+
+.label-info:hover { background-color: darken(@blueDark, 20%); }
+
+// MISC
+// -----------------------------------------------------
+
+.well, .hero-unit {
+  .border-radius(1px);
+}
+
+.well, .hero-unit {
+  border-top: solid 1px lighten(@grayDark, 5%);
+  .box-shadow(0 2px 4px rgba(0,0,0,.8));
+}
+
+.thumbnail {
+  border-color: @grayDark;
+}
+
+.progress {
+  background-color: #060606;
+  background-image: none;
+  .border-radius(0);
+}
+
+.modal {
+  .border-radius(1px);
+  border-top: solid 1px lighten(@grayDark, 5%);
+  background-color: @grayDark;
+}
+
+.modal-header {
+  border-bottom: 1px solid @grayDark;
+}
+
+.modal-footer {
+  background-color: @grayDark;
+  border-top: 1px solid @grayDark;
+  .border-radius(0 0 6px 6px);
+  .box-shadow(none);
+}
+
+.footer {
+  border-top: 1px solid @grayDark;
+}
+
+// MEDIA QUERIES
+// -----------------------------------------------------
+
+@media (max-width: 768px) {
+  div.subnav .nav > li + li > a,
+  div.subnav .nav > li:first-child > a {
+    border-top: 1px solid @grayDark;
+    border-left: 1px solid @grayDark;
+  }
+
+  .subnav .nav > li + li > a:hover,
+  .subnav .nav > li:first-child > a:hover {
+    border-bottom: 0;
+    background-color: @blue;
+  }
+}
