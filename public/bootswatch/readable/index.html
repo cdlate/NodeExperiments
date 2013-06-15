@@ -18,17 +18,16 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/bootswatch.css" rel="stylesheet">
     -->
-	 <script type="text/javascript">
-        $('document').ready(function(){
-            $("#saveBTN").click(function(){
-                $.get('variables.less',function(data){
-                    $.post('http://localhost:3000/app/save/',{lessObj:data},function(otherData){
-                        alert(otherData.success!=null ? otherData.success : otherData.error);
-                    },'json');
-                },"text")
-            });
-        });
-	 </script>
+      <script type="text/javascript">
+          var themeName = 'readable';
+          $('document').ready(function(){
+              $("#saveBTN").click(function(){
+                  $.post('http://localhost:3000/app/savetheme/',{themeName:themeName},function(otherData){
+                      alert(otherData.success!=null ? otherData.success : otherData.error);
+                  },'json');
+              });
+          });
+      </script>
 
   </head>
 

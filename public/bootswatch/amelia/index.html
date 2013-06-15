@@ -19,9 +19,10 @@
     <link href="../css/bootswatch.css" rel="stylesheet">
     -->
 	 <script type="text/javascript">
+         var themeName = 'amelia';
         $('document').ready(function(){
             $("#saveBTN").click(function(){
-                $.post('http://localhost:3000/app/savetheme/',{themeName:'amelia'},function(otherData){
+                $.post('http://localhost:3000/app/savetheme/',{themeName:themeName},function(otherData){
                     alert(otherData.success!=null ? otherData.success : otherData.error);
                     },'json');
             });
